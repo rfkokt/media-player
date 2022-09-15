@@ -11,7 +11,6 @@ export default function Sidebar() {
 
     useEffect(() => {
         apiClient.get("me").then(res => {
-            console.log("debug ", res.data.images[0].url)
             setImage(res.data.images[0].url)
         })
     }, [])
@@ -29,7 +28,10 @@ export default function Sidebar() {
                 <SidebarButton title="Favorite" to="/favorites" icon={<MdFavorite />} />
                 <SidebarButton title="Library" to="/" icon={<IoLibrary />} />
             </div>
-            <SidebarButton title="Sign Out" to="" icon={<FaSignOutAlt />} />
+            <SidebarButton title="Sign Out" to="" onClick={() => {
+                localStorage.removeItem("token")
+                window.location.href('/')
+            }} icon={<FaSignOutAlt />} />
         </div>
     )
 }

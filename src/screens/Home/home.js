@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Sidebar from '../../components/sidebar/index.js'
+import { Sidebar } from '../../components'
 import { setClientToken } from '../../spotify.js'
 import Login from '../auth/login.js'
 import { Feed, Library, Trending, Favorites, Player } from '../index.js'
